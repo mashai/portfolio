@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Status
 
-The Next.js project has not been initialized yet. No build, lint, or test commands exist. This file will be updated once the application scaffold is in place.
+Phase 1 complete. Next.js 15 (App Router, TypeScript, Tailwind v3) is initialized and building cleanly. Available scripts: `npm run dev`, `npm run build`, `npm run lint`, `npm run format`, `npm run test`, `npm run test:update`.
 
 ## Essential reading
 

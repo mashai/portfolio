@@ -16,6 +16,10 @@ node_modules/
 # OS files
 .DS_Store
 
+# playwright
+playwright-report/
+test-results/
+
 # claude local config
 .claude/settings.local.json
 .claude/*.local.json
