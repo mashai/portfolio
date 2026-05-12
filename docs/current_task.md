@@ -17,19 +17,16 @@ Confirm that the development environment is correctly aligned before the Next.js
 - Confirm the following directories exist at the repository root: `app/`, `components/`, `content/projects/`, `lib/`, `types/`, `public/`, `docs/`
 - Create any missing directories (empty, no placeholder files required)
 
-**0.2 — Tooling alignment**
-- ESLint configured with Next.js recommended rules
-- Prettier configured: single quotes, trailing commas, 2-space indent
+**0.2 — Tooling alignment** *(file-based config only — no package.json yet)*
+- Prettier config file present (single quotes, trailing commas, 2-space indent)
 - `.editorconfig` present for cross-editor consistency
-- `package.json` contains `lint` and `format` scripts
 
 ---
 
 ## Definition of Done
 
 - All required directories exist at the repository root
-- Running the lint script produces no configuration errors
-- Running the format script produces no configuration errors
+- Prettier config file is present and correctly configured
 - `.editorconfig` is present and consistent with Prettier settings
 - No application code has been written
 
