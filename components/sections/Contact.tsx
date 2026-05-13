@@ -31,7 +31,7 @@ export default function Contact() {
     return next;
   }
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const next = validate(form);
@@ -41,8 +41,23 @@ export default function Contact() {
     }
     setErrors({});
     setStatus('loading');
-    await new Promise((r) => setTimeout(r, 800));
-    setStatus('success');
+    const data = new FormData(form);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: (data.get('name') as string).trim(),
+          email: (data.get('email') as string).trim(),
+          company: (data.get('company') as string).trim(),
+          website: (data.get('website') as string).trim(),
+          message: (data.get('message') as string).trim(),
+        }),
+      });
+      setStatus(res.ok ? 'success' : 'error');
+    } catch {
+      setStatus('error');
+    }
   }
 
   return (

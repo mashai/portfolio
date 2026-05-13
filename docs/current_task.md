@@ -1,43 +1,32 @@
 # Current Task
 
 **Roadmap position:** Phase 3 — Interaction
-**Reference:** `docs/roadmap.md` → Phase 3, task 3.1
+**Reference:** `docs/roadmap.md` → Phase 3, task 3.2
 
 ---
 
 ## Objective
 
-Implement the Contact form component, replacing the Contact skeleton. No API wiring yet.
+Wire the Contact form to send email via Resend.
 
 ---
 
 ## Tasks
 
-**3.1 — Contact form component** *(replaces Contact skeleton in `app/page.tsx`)*
-- `components/sections/Contact.tsx` — left column: CTA text; right column: form, stacks on mobile
-- Fields: Name (required), Company Name, Company Website, Email (required) — Name and Company Name side by side at desktop, stacked on mobile
-- "Get in touch" button — dark fill, no accent color
-- Client-side validation: Name and Email required, email format check
-- Loading, success, and error states (local component state only)
-- Ships fully responsive at 375px, 768px, 1280px, 1920px
-- Update Playwright baselines after completion
+**3.2 — Contact API route**
+- `lib/resend.ts` — instantiate Resend client from `RESEND_API_KEY`
+- `app/api/contact/route.ts` — POST handler: reads form body, sends email via Resend to `CONTACT_EMAIL_TO`, returns success/failure JSON
+- `.env.local` — add `RESEND_API_KEY` and `CONTACT_EMAIL_TO` (not committed)
+- `.env.example` — document both variables with placeholder values
+- Update `Contact.tsx` `handleSubmit` to POST to `/api/contact` and handle the response
 
 ---
 
 ## Definition of Done
 
-- Contact skeleton replaced with real component
-- Name and Email are required fields with validation
-- Company Name and Company Website are optional
-- Email format validation works
-- Loading, success, and error states visible
-- Fully responsive at all four breakpoints
-- Playwright baselines updated
-- No API wiring — form submits to nowhere
-
----
-
-## Do Not Start Yet
-
-- Contact API route (3.2) — requires Resend account + API key
-- Everything in Phase 4
+- Submitting the form sends a real email to the configured address
+- `RESEND_API_KEY` and `CONTACT_EMAIL_TO` are env vars, not hardcoded
+- `.env.example` documents both vars
+- `.env.local` is in `.gitignore`
+- Loading, success, and error states reflect actual API response
+- No database, no persistence

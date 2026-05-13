@@ -56,9 +56,8 @@ After execution:
 
 If the user confirms they are happy with the changes:
 
-- Prompt to commit with a suggested commit message
-- Wait for the user to approve or adjust the message before committing
-- Do not commit automatically
+- Prompt a commit message based on the work done
+- Do not commit
 
 After completion:
 
