@@ -3,6 +3,10 @@ node_modules/
 
 # next.js build output
 .next/
+out/
+
+# typescript
+*.tsbuildinfo
 
 # environment variables
 .env*
@@ -23,3 +27,4 @@ test-results/
 # claude local config
 .claude/settings.local.json
 .claude/*.local.json
+.claude/settings.json

@@ -1,22 +1,27 @@
 # Current Task
 
 **Roadmap position:** Phase 2 — Sections
-**Reference:** `docs/roadmap.md` → Phase 2, task 2.5b
+**Reference:** `docs/roadmap.md` → Phase 2, task 2.7
 
 ---
 
 ## Objective
 
-Add project detail pages accessible by clicking a card. No MDX body rendering — frontmatter data only.
+Implement the tag filtered page so clicking a tag pill anywhere on the site navigates to a filtered list of projects.
+
+---
+
+## Note on URL structure
+
+`app/projects/[slug]/page.tsx` already occupies the `/projects/[x]` dynamic segment. Tag pages live at `/projects/tag/[tag]` to avoid the conflict. `TagPill` is updated to link to the new path.
 
 ---
 
 ## Tasks
 
-**2.5b — Project detail page**
-- `lib/mdx.ts` — add `getProjectBySlug(slug: string): Project | undefined`
-- `components/ui/ProjectCard.tsx` — wrap card in a `Link` to `/projects/[slug]`
-- `app/projects/[slug]/page.tsx` — static page using `generateStaticParams`, renders thumbnail, title, description, and tag pills from frontmatter
+**2.7 — Tag filtered page**
+- `app/projects/tag/[tag]/page.tsx` — `generateStaticParams` enumerates all unique tags, renders a filtered `ProjectsGrid`
+- `components/ui/TagPill.tsx` — update href to `/projects/tag/[tag]`
 - Ships fully responsive at 375px, 768px, 1280px, 1920px
 - Update Playwright baselines after completion
 
@@ -24,17 +29,9 @@ Add project detail pages accessible by clicking a card. No MDX body rendering �
 
 ## Definition of Done
 
-- Clicking any project card navigates to `/projects/[slug]`
-- Detail page renders thumbnail, title, description, and tag pills
-- All slugs are statically generated at build time
+- Navigating to `/projects/tag/[tag]` renders only projects matching that tag
+- All tag pages are statically generated at build time
+- Tag pills across the site link to the correct URL
 - Fully responsive at all four breakpoints
 - Playwright baselines updated
-- No new dependencies introduced
-
----
-
-## Do Not Start Yet
-
-- Tag filtered page (2.7)
-- Contact section (3.1–3.2)
-- Everything in Phase 3 and 4
+- No other sections modified
