@@ -22,4 +22,17 @@ export const siteContent = {
     showMoreTags: 'Show More',
     showLessTags: 'Show Less',
   },
+  contact: {
+    cta: 'Want to get in touch about a role or contract work?',
+    fields: {
+      name: 'Name',
+      company: 'Company Name',
+      website: 'Company Website',
+      email: 'Email',
+      message: 'Message',
+    },
+    submit: 'Get in touch',
+    success: "Thanks for reaching out — I'll be in touch soon.",
+    error: 'Something went wrong. Please try again.',
+  },
 } as const;

@@ -1,6 +1,7 @@
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
 import ProjectsGrid from '@/components/sections/ProjectsGrid';
+import Contact from '@/components/sections/Contact';
 import { getAllProjects } from '@/lib/mdx';
 
 export default function Home() {
@@ -12,9 +13,7 @@ export default function Home() {
       <Hero />
       <About tags={tags} />
       <ProjectsGrid projects={projects} />
-      <section id="contact" className="flex min-h-[50vh] items-center justify-center">
-        <span className="text-sm text-text-muted">Contact</span>
-      </section>
+      <Contact />
     </main>
   );
 }

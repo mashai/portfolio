@@ -1,27 +1,24 @@
 # Current Task
 
-**Roadmap position:** Phase 2 — Sections
-**Reference:** `docs/roadmap.md` → Phase 2, task 2.7
+**Roadmap position:** Phase 3 — Interaction
+**Reference:** `docs/roadmap.md` → Phase 3, task 3.1
 
 ---
 
 ## Objective
 
-Implement the tag filtered page so clicking a tag pill anywhere on the site navigates to a filtered list of projects.
-
----
-
-## Note on URL structure
-
-`app/projects/[slug]/page.tsx` already occupies the `/projects/[x]` dynamic segment. Tag pages live at `/projects/tag/[tag]` to avoid the conflict. `TagPill` is updated to link to the new path.
+Implement the Contact form component, replacing the Contact skeleton. No API wiring yet.
 
 ---
 
 ## Tasks
 
-**2.7 — Tag filtered page**
-- `app/projects/tag/[tag]/page.tsx` — `generateStaticParams` enumerates all unique tags, renders a filtered `ProjectsGrid`
-- `components/ui/TagPill.tsx` — update href to `/projects/tag/[tag]`
+**3.1 — Contact form component** *(replaces Contact skeleton in `app/page.tsx`)*
+- `components/sections/Contact.tsx` — left column: CTA text; right column: form, stacks on mobile
+- Fields: Name (required), Company Name, Company Website, Email (required) — Name and Company Name side by side at desktop, stacked on mobile
+- "Get in touch" button — dark fill, no accent color
+- Client-side validation: Name and Email required, email format check
+- Loading, success, and error states (local component state only)
 - Ships fully responsive at 375px, 768px, 1280px, 1920px
 - Update Playwright baselines after completion
 
@@ -29,9 +26,18 @@ Implement the tag filtered page so clicking a tag pill anywhere on the site navi
 
 ## Definition of Done
 
-- Navigating to `/projects/tag/[tag]` renders only projects matching that tag
-- All tag pages are statically generated at build time
-- Tag pills across the site link to the correct URL
+- Contact skeleton replaced with real component
+- Name and Email are required fields with validation
+- Company Name and Company Website are optional
+- Email format validation works
+- Loading, success, and error states visible
 - Fully responsive at all four breakpoints
 - Playwright baselines updated
-- No other sections modified
+- No API wiring — form submits to nowhere
+
+---
+
+## Do Not Start Yet
+
+- Contact API route (3.2) — requires Resend account + API key
+- Everything in Phase 4
