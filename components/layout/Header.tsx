@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { siteContent } from '@/content/site';
 
 const { name, linkedinUrl, resumeUrl } = siteContent.header;
@@ -6,7 +7,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-surface">
       <div className="flex h-16 w-full items-center justify-between px-6 md:px-8">
-          <span className="text-base font-medium text-text">{name}</span>
+          <Link href="/" className="text-base font-medium text-text transition-opacity hover:opacity-70">{name}</Link>
           <div className="flex items-center gap-3">
             <a
               href={linkedinUrl}

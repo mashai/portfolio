@@ -100,6 +100,12 @@ These two constraints apply to every phase and every component:
 - `components/sections/ProjectsGrid.tsx` — 4-column grid at desktop, 2-column at tablet, 1-column at mobile
 - Card surface uses `color.surface-muted`, no colored borders or accents
 
+**2.5b — Project detail page**
+- `app/projects/[slug]/page.tsx` — `generateStaticParams` enumerates all slugs, renders thumbnail, title, description, and tag pills from frontmatter
+- `lib/mdx.ts` gets a `getProjectBySlug(slug)` helper
+- Cards in `ProjectCard` become links to `/projects/[slug]`
+- No new dependencies — frontmatter only, no MDX body rendering
+
 **2.6 — Home page composition**
 - `app/page.tsx` reads all project entries at build time (static) and passes typed data to `About` and `ProjectsGrid`
 - Skeleton placeholders fully replaced; no mock data remains

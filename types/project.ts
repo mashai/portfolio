@@ -5,4 +5,5 @@ export interface Project {
   tags: string[];
   thumbnail: string;
   date: string;
+  body?: string;
 }
