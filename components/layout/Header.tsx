@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-surface">
       <div className="flex h-16 w-full items-center justify-between px-6 md:px-8">
-          <span className="text-base font-normal text-text">{name}</span>
+          <span className="text-base font-medium text-text">{name}</span>
           <div className="flex items-center gap-3">
             <a
               href={linkedinUrl}
@@ -31,15 +31,15 @@ export default function Header() {
             <a
               href={resumeUrl}
               download
-              className="flex items-center gap-2 rounded border border-text px-4 py-1.5 text-sm font-normal text-text transition-opacity hover:opacity-70"
+              className="flex h-[30px] items-center gap-2 rounded border border-text px-4 text-sm font-medium text-text transition-opacity hover:opacity-70"
             >
-              Resume
+              <span className="hidden sm:inline">Resume</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="1.75"
+                strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 width="14"
