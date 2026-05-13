@@ -12,4 +12,14 @@ export const siteContent = {
     headline: 'Hi, I am Chai',
     subheadline: 'Senior Software Engineer | Systems & Platform Architecture',
   },
+  about: {
+    bio: [
+      "I'm a software engineer and technical lead with 13+ years of experience working on complex production systems, primarily in game development and consulting environments, building and shipping features and products from prototype through production.",
+      "Alongside leading core systems and feature development, I've taken responsibility for the full delivery lifecycle; from architecture and implementation to build pipelines, releases, cloud infrastructure, and internal tooling. I'm often brought into projects that are behind schedule or difficult to maintain, where my role is to quickly understand existing systems, resolve critical issues, and restore engineering workflows so teams can move forward and ship confidently.",
+      "My experience includes reverse-engineering complex legacy systems, building MVPs and rapid prototypes, modernizing existing platforms, developing backend services, and creating tools that improve both developer and content team productivity.",
+      "In short, I enjoy creating practical solutions to complex problems, whatever form that might take.",
+    ],
+    showMoreTags: 'Show More',
+    showLessTags: 'Show Less',
+  },
 } as const;

@@ -6,7 +6,7 @@ interface ContainerProps {
 export default function Container({ children, className }: ContainerProps) {
   return (
     <div
-      className={['mx-auto w-full max-w-6xl px-6 md:px-8', className]
+      className={['mx-auto w-full max-w-screen-2xl px-6 md:px-8', className]
         .filter(Boolean)
         .join(' ')}
     >
