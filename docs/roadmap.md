@@ -69,8 +69,6 @@ These two constraints apply to every phase and every component:
 
 ## Phase 2 — Sections
 
-> Install at start of phase: `next-mdx-remote`, `gray-matter`
->
 > Each section below replaces its Phase 1 skeleton. Each ships responsive. Update Playwright baselines after each section is complete.
 
 > **Asset dependencies — required before this phase begins:**

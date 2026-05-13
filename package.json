@@ -12,6 +12,7 @@
     "test:update": "playwright test --update-snapshots"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "next": "^15",
     "react": "^19",
     "react-dom": "^19"
