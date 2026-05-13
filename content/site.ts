@@ -9,7 +9,7 @@ export const siteContent = {
     linkedinUrl: 'https://www.linkedin.com/in/charlotte-lacombe-bar-99843150/',
   },
   hero: {
-    headline: 'Chai Lacombe-Bar',
+    headline: 'Hi, I am Chai',
     subheadline: 'Senior Software Engineer | Systems & Platform Architecture',
   },
 } as const;

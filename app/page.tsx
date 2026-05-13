@@ -1,9 +1,9 @@
+import Hero from '@/components/sections/Hero';
+
 export default function Home() {
   return (
     <main>
-      <section id="hero" className="flex min-h-screen items-center justify-center">
-        <span className="text-sm text-text-muted">Hero</span>
-      </section>
+      <Hero />
       <section id="about" className="flex min-h-[50vh] items-center justify-center">
         <span className="text-sm text-text-muted">About</span>
       </section>

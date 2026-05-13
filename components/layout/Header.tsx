@@ -1,4 +1,3 @@
-import Container from './Container';
 import { siteContent } from '@/content/site';
 
 const { name, linkedinUrl, resumeUrl } = siteContent.header;
@@ -6,8 +5,7 @@ const { name, linkedinUrl, resumeUrl } = siteContent.header;
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-surface">
-      <Container>
-        <div className="flex h-16 items-center justify-between">
+      <div className="flex h-16 w-full items-center justify-between px-6 md:px-8">
           <span className="text-base font-normal text-text">{name}</span>
           <div className="flex items-center gap-3">
             <a
@@ -52,8 +50,7 @@ export default function Header() {
               </svg>
             </a>
           </div>
-        </div>
-      </Container>
+      </div>
     </header>
   );
 }
