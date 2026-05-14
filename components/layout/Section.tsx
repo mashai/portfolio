@@ -14,7 +14,7 @@ export default function Section({
   return (
     <Tag
       id={id}
-      className={['py-16 md:py-24', className].filter(Boolean).join(' ')}
+      className={['py-8 md:py-12', className].filter(Boolean).join(' ')}
     >
       {children}
     </Tag>

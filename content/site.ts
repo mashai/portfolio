@@ -12,6 +12,10 @@ export const siteContent = {
     headline: 'Hi, I am Chai',
     subheadline: 'Senior Software Engineer | Systems & Platform Architecture',
   },
+  projects: {
+    showMore: 'Show More',
+    showLess: 'Show Less',
+  },
   about: {
     bio: [
       "I'm a software engineer and technical lead with 13+ years of experience working on complex production systems, primarily in game development and consulting environments, building and shipping features and products from prototype through production.",
@@ -30,6 +34,12 @@ export const siteContent = {
       website: 'Company Website',
       email: 'Email',
       message: 'Message',
+    },
+    validation: {
+      nameRequired: 'Name is required',
+      emailRequired: 'Email is required',
+      emailInvalid: 'Enter a valid email address',
+      messageRequired: 'Message is required',
     },
     submit: 'Get in touch',
     success: "Thanks for reaching out — I'll be in touch soon.",

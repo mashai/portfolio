@@ -1,32 +1,28 @@
 # Current Task
 
-**Roadmap position:** Phase 3 — Interaction
-**Reference:** `docs/roadmap.md` → Phase 3, task 3.2
+**Roadmap position:** Between Phase 3 and Phase 4 — UI, Layout & Content Pass
+**Reference:** Unscheduled session; precedes `docs/roadmap.md` Phase 4
 
 ---
 
 ## Objective
 
-Wire the Contact form to send email via Resend.
+An open-ended pass over the portfolio covering visual polish, layout adjustments, and content editing. Changes are made iteratively based on Chai's direction.
 
 ---
 
-## Tasks
+## Scope
 
-**3.2 — Contact API route**
-- `lib/resend.ts` — instantiate Resend client from `RESEND_API_KEY`
-- `app/api/contact/route.ts` — POST handler: reads form body, sends email via Resend to `CONTACT_EMAIL_TO`, returns success/failure JSON
-- `.env.local` — add `RESEND_API_KEY` and `CONTACT_EMAIL_TO` (not committed)
-- `.env.example` — document both variables with placeholder values
-- Update `Contact.tsx` `handleSubmit` to POST to `/api/contact` and handle the response
+Anything across UI, layout, copy, and content — including but not limited to:
+
+- Section spacing and visual rhythm
+- Component sizing, proportions, typography
+- Written content in `content/site.ts` and MDX project files
+- Hardcoded strings moved to `content/site.ts`
+- Bug fixes surfaced during review
 
 ---
 
 ## Definition of Done
 
-- Submitting the form sends a real email to the configured address
-- `RESEND_API_KEY` and `CONTACT_EMAIL_TO` are env vars, not hardcoded
-- `.env.example` documents both vars
-- `.env.local` is in `.gitignore`
-- Loading, success, and error states reflect actual API response
-- No database, no persistence
+When Chai says so.

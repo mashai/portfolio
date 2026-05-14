@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Project } from '@/types/project';
-import TagPill from './TagPill';
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
@@ -17,12 +16,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       </div>
       <div className="flex flex-1 flex-col gap-3 p-4">
         <h3 className="text-base font-medium text-text">{project.title}</h3>
-        <p className="flex-1 text-sm leading-relaxed text-text-muted">{project.description}</p>
-        <div className="flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <TagPill key={tag} tag={tag} />
-          ))}
-        </div>
+        <p className="line-clamp-3 text-sm leading-relaxed text-text-muted">{project.description}</p>
       </div>
     </Link>
   );
