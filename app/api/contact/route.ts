@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getResend } from '@/lib/resend';
+import { Resend } from 'resend';
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
@@ -10,7 +10,8 @@ export async function POST(req: NextRequest) {
   }
 
   const to = process.env.CONTACT_EMAIL_TO;
-  if (!to) {
+  const from = process.env.CONTACT_EMAIL_FROM;
+  if (!to || !from) {
     return NextResponse.json({ error: 'Server misconfiguration.' }, { status: 500 });
   }
 
@@ -24,8 +25,9 @@ export async function POST(req: NextRequest) {
     .filter(Boolean)
     .join('\n');
 
-  const { error } = await getResend().emails.send({
-    from: 'Portfolio Contact <onboarding@resend.dev>',
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  const { error } = await resend.emails.send({
+    from,
     to,
     subject: `Portfolio contact from ${name}`,
     text: lines,

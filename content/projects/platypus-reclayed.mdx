@@ -1,11 +1,21 @@
 ---
-title: Arcade Legacy Revival
-description: Reverse-engineered and reconstructed the core foundations of a 22-year-old arcade title on a modern engine, faithfully recreating original gameplay behaviour, timings, and data formats.
-tags: ["Reverse Engineering", "Game Dev", "C++", "Legacy Systems"]
+title: Platypus Reclayed
+description: Ported a 2002 BlitzMax arcade title to Unity from scratch, designing the moddable architecture behind Platypus Reclayed.
+tags: ["Unity3D", "C#", "Reverse Engineering", "Modding", "Steam", "PlayStation", "Xbox", "Nintendo Switch"]
 thumbnail: /thumbnails/platypus-reclayed.png
+thumbnailOffset: "bottom"
 date: "2026-02-01"
+teamSize: "3"
+company: "Claymatic"
+role: "Senior Software Engineer"
+github: ""
+website: "https://claymatic.games/platypus-reclayed"
+youtube: "https://www.youtube.com/watch?v=7EQQSWcm8sc"
+images: []
 ---
 
-The challenge was to faithfully recreate a 22-year-old arcade title on a modern engine without access to original source code or documentation. Working from binary analysis and runtime observation, I reconstructed the game's core foundations — including its timing systems, data formats, and gameplay behaviours — with enough accuracy to support testing, modding, and future development.
+Platypus launched in 2002 and built a following that never really went away. Two decades later its creator Anthony Flack decided to bring it back properly, and brought me in to lead the engineering. The original was written in BlitzMax, with frame-based logic that didn't map cleanly onto Unity's update model. Working from that source, I led the conversion to Unity/C# and designed the architecture from the ground up. The brief was to faithfully recreate the original game and ship an enhanced version (Reclayed) with updated graphics and improved logic, while supporting user modding from day one.
 
-The reconstruction required deep reverse-engineering of proprietary formats and engine-level systems, alongside careful validation against original hardware behaviour. The result is a maintainable, modern codebase that preserves the original experience while enabling the kind of iterative development the original platform never supported.
+The hardest problem was decoupling AI behaviour from frame rate. The original enemy logic was tightly tied to a fixed frame clock; converting it to a delta-time system while preserving the exact feel and timings required careful analysis and validation against the original. I designed the mod architecture so that both the faithful recreation and Reclayed shared the same base, reading from the original level file format so user mods worked across both versions.
+
+I established the full project foundation — original game, proof of concept, mod infrastructure, settings files, and architecture designed for cross-platform from the start — and delivered a fully playable Reclayed stage before handing off. I then onboarded the incoming programmer, walking them through the codebase and original BlitzMax source before leaving the engagement. Platypus Reclayed shipped in September 2025 across PC and consoles to an Overwhelmingly Positive reception on Steam.
