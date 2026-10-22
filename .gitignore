@@ -10,6 +10,7 @@ out/
 
 # environment variables
 .env*
+!.env.example
 
 # vscode
 .vscode/

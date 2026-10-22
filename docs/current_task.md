@@ -1,32 +1,36 @@
 # Current Task
 
-**Roadmap position:** Phase 3 — Interaction
-**Reference:** `docs/roadmap.md` → Phase 3, task 3.2
+**Roadmap position:** Phase 4 — Quality & Deployment
+**Reference:** `docs/roadmap.md` → Phase 4, task 4.3 (run ahead of 4.1 and 4.2)
 
 ---
 
 ## Objective
 
-Wire the Contact form to send email via Resend.
+Get the site live on a Northflank URL so content can be added and tested against a real deployment.
 
 ---
 
 ## Tasks
 
-**3.2 — Contact API route**
-- `lib/resend.ts` — instantiate Resend client from `RESEND_API_KEY`
-- `app/api/contact/route.ts` — POST handler: reads form body, sends email via Resend to `CONTACT_EMAIL_TO`, returns success/failure JSON
-- `.env.local` — add `RESEND_API_KEY` and `CONTACT_EMAIL_TO` (not committed)
-- `.env.example` — document both variables with placeholder values
-- Update `Contact.tsx` `handleSubmit` to POST to `/api/contact` and handle the response
+**4.3 — Deployment**
+- Already in repo: `output: 'standalone'` in `next.config.ts`, multi-stage `Dockerfile`, `.dockerignore`, `.env.example`
+- Push repository to GitHub
+- Create a Northflank combined service from the GitHub repo — Build type: Dockerfile, public HTTP port 3000, health check on `/`
+- Set `RESEND_API_KEY` and `CONTACT_EMAIL_TO` as Northflank runtime variables (not build arguments)
 
 ---
 
 ## Definition of Done
 
-- Submitting the form sends a real email to the configured address
-- `RESEND_API_KEY` and `CONTACT_EMAIL_TO` are env vars, not hardcoded
-- `.env.example` documents both vars
-- `.env.local` is in `.gitignore`
-- Loading, success, and error states reflect actual API response
-- No database, no persistence
+- Site loads on the Northflank URL
+- Pushing to `main` triggers a rebuild and redeploy
+- Submitting the Contact form on the deployed site delivers an email
+- No secrets in the repository or baked into the Docker image
+
+---
+
+## Not in scope
+
+- Custom domain
+- SEO metadata (4.1) and performance audit (4.2)
