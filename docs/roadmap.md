@@ -153,8 +153,9 @@ These two constraints apply to every phase and every component:
 
 **4.3 — Deployment**
 - Push repository to GitHub
-- Connect to Vercel, configure build settings
-- Set `RESEND_API_KEY` in Vercel environment variables
+- Deploy on Northflank (same setup as DP Solutions): `output: 'standalone'`, multi-stage `Dockerfile` and `.dockerignore` in the repo
+- Create a Northflank combined service from the GitHub repo — Build type: Dockerfile, public HTTP port 3000, health check on `/`
+- Set `RESEND_API_KEY` and `CONTACT_EMAIL_TO` as Northflank runtime variables (not build arguments)
 - Verify contact form delivers email end-to-end in production
 
 ---
@@ -163,6 +164,8 @@ These two constraints apply to every phase and every component:
 
 Each item is a discrete unit tackled in sequence:
 
-`0.1 → 0.2 → 1.1 → 1.2 → 1.3 → 1.4 → 1.5 → 1.6 → 2.1 → 2.2 → 2.3 → 2.4 → 2.5 → 2.6 → 2.7 → 3.1 → 3.2 → 4.1 → 4.2 → 4.3`
+`0.1 → 0.2 → 1.1 → 1.2 → 1.3 → 1.4 → 1.5 → 1.6 → 2.1 → 2.2 → 2.3 → 2.4 → 2.5 → 2.6 → 2.7 → 3.1 → 3.2 → 4.3 → 4.1 → 4.2`
+
+> Note: 4.3 (Deployment) runs before 4.1 and 4.2 so the site is live on a test URL while content is added and the quality pass is done.
 
 > Note: asset dependencies (hero video, avatar image) must be in `public/` before Phase 2 begins. Resend account must exist before Phase 3 begins.
