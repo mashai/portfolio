@@ -1,11 +1,18 @@
 ---
 title: Joe Danger Touch
-description: Brought in by Hello Games to diagnose and resolve game-breaking rendering and localisation issues, then ported the title to Android TV with full controller support.
-tags: ["Android", "Unity", "Reverse Engineering", "Game Dev", "Porting"]
+description: Fixed game-breaking rendering and localisation issues on a classic mobile title, then ported it to Android TV with full controller support.
+tags: ["Android", "Unity3D", "C#", "Bug Fixing"]
 thumbnail: /thumbnails/joe-danger-touch.png
 date: "2016-12-01"
+teamSize: "2"
+company: "Hello Games"
+role: "Consultant"
+github: ""
+website: "https://joedangerthegame.com/joe-danger-touch"
+youtube: "https://www.youtube.com/watch?v=_JW1mT_8RdQ"
+images: []
 ---
 
-Joe Danger Touch is a mobile platform racing game by Hello Games. I was brought in to diagnose and resolve game-breaking issues affecting rendering materials and localisation, working with legacy engine integrations that lacked documentation or accessible source context.
+Hello Games brought me and a colleague in to fix Joe Danger Touch while their team was shipping No Man's Sky. The game was one of the App Store's original smash hits — Editors' Choice, 9/10s from IGN, Eurogamer, and PocketGamer — but had developed game-breaking rendering and localisation issues.
 
-I stabilised the integration by black-boxing subsystems, rebuilding Unity hooks, and rewriting shaders. Following that engagement I ported the title to Android TV and Android Box, adding controller support and all platform-specific adaptations required for release.
+Most of the code had originated in a previous engine with its own rendering system, hooked into Unity with no documentation. I diagnosed the problems by black-boxing the subsystems the game relied on, rebuilt the Unity hooks, and rewrote the shaders. Following the fix I ported the title to Android TV and Android Box, adding controller support and all required platform adaptations.

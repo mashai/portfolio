@@ -1,13 +1,12 @@
 import { notFound } from 'next/navigation';
-import { getAllProjects } from '@/lib/mdx';
+import { getAllProjects, getUniqueTags } from '@/lib/mdx';
 import Container from '@/components/layout/Container';
 import Section from '@/components/layout/Section';
 import ProjectCard from '@/components/ui/ProjectCard';
 
 export function generateStaticParams() {
   const projects = getAllProjects();
-  const tags = [...new Set(projects.flatMap((p) => p.tags))];
-  return tags.map((tag) => ({ tag: encodeURIComponent(tag) }));
+  return getUniqueTags(projects).map((tag) => ({ tag: encodeURIComponent(tag) }));
 }
 
 interface PageProps {

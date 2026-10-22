@@ -14,12 +14,12 @@ export default function About({ tags }: AboutProps) {
       <Container>
         <div className="grid grid-cols-1 gap-10 md:grid-cols-[auto_1fr] md:items-start md:gap-16">
           <div className="flex justify-center pl-6 md:justify-start md:pl-8">
-            <div className="h-64 w-64 overflow-hidden rounded-full -rotate-[5deg]">
+            <div className="h-56 w-56 overflow-hidden rounded-full -rotate-[5deg]">
               <Image
                 src="/profile-picture.png"
                 alt={siteContent.header.name}
-                width={256}
-                height={256}
+                width={224}
+                height={224}
                 className="h-full w-full object-cover"
               />
             </div>

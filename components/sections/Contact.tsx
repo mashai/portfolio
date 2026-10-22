@@ -9,50 +9,60 @@ const { cta, fields, validation, submit, success, error: errorMsg } = siteConten
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
+interface FormValues {
+  name: string;
+  email: string;
+  company: string;
+  website: string;
+  message: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  message?: string;
+}
+
 const inputClass =
   'w-full rounded border border-border bg-surface px-4 py-2.5 text-sm text-text placeholder-text-muted/60 focus:border-text focus:outline-none';
 const labelClass = 'block text-sm text-text-muted';
 const fieldClass = 'flex flex-col gap-1.5';
 
+function extractAndValidate(form: HTMLFormElement): { values: FormValues; errors: FormErrors } {
+  const data = new FormData(form);
+  const values: FormValues = {
+    name: (data.get('name') as string).trim(),
+    email: (data.get('email') as string).trim(),
+    company: (data.get('company') as string).trim(),
+    website: (data.get('website') as string).trim(),
+    message: (data.get('message') as string).trim(),
+  };
+  const errors: FormErrors = {};
+  if (!values.name) errors.name = validation.nameRequired;
+  if (!values.email) errors.email = validation.emailRequired;
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) errors.email = validation.emailInvalid;
+  if (!values.message) errors.message = validation.messageRequired;
+  return { values, errors };
+}
+
 export default function Contact() {
   const [status, setStatus] = useState<Status>('idle');
-  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
-
-  function validate(form: HTMLFormElement) {
-    const data = new FormData(form);
-    const name = (data.get('name') as string).trim();
-    const email = (data.get('email') as string).trim();
-    const message = (data.get('message') as string).trim();
-    const next: { name?: string; email?: string; message?: string } = {};
-    if (!name) next.name = validation.nameRequired;
-    if (!email) next.email = validation.emailRequired;
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) next.email = validation.emailInvalid;
-    if (!message) next.message = validation.messageRequired;
-    return next;
-  }
+  const [errors, setErrors] = useState<FormErrors>({});
 
   async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.currentTarget;
-    const next = validate(form);
+    const { values, errors: next } = extractAndValidate(e.currentTarget);
     if (Object.keys(next).length > 0) {
       setErrors(next);
       return;
     }
     setErrors({});
     setStatus('loading');
-    const data = new FormData(form);
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: (data.get('name') as string).trim(),
-          email: (data.get('email') as string).trim(),
-          company: (data.get('company') as string).trim(),
-          website: (data.get('website') as string).trim(),
-          message: (data.get('message') as string).trim(),
-        }),
+        body: JSON.stringify(values),
       });
       setStatus(res.ok ? 'success' : 'error');
     } catch {
