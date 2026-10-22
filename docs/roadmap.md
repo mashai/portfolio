@@ -155,6 +155,7 @@ These two constraints apply to every phase and every component:
 - Push repository to GitHub
 - Deploy on Northflank (same setup as DP Solutions): `output: 'standalone'`, multi-stage `Dockerfile` and `.dockerignore` in the repo
 - Create a Northflank combined service from the GitHub repo — Build type: Dockerfile, public HTTP port 3000, health check on `/`
+- Deploys build from the `production` branch only; day-to-day work happens on `main`, and a release is `main` merged into `production`
 - Set `RESEND_API_KEY` and `CONTACT_EMAIL_TO` as Northflank runtime variables (not build arguments)
 - Verify contact form delivers email end-to-end in production
 
